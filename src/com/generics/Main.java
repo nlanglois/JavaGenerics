@@ -7,14 +7,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List list = new ArrayList();
+        List<String> list = new ArrayList<String>();
+        int counter = 0;
 
         list.add("abc");
-        list.add(new Integer(5));
+        list.add("xyz");
 
-        for (Object obj: list) {
-            // type casting leading to ClassCastException at runtime
-            String str = (String) obj;
+//        Results in a compiler error
+//        list.add(5);
+
+        for (String str : list) {
+            // no type casting necessary, avoids ClassCastException
+
+            counter ++;
+            System.out.println(counter + ". " + str);
         }
 
     }
